@@ -3,6 +3,8 @@ module novaproxy
 go 1.25.5
 
 require (
+	github.com/andybalholm/brotli v1.0.6
+	github.com/klauspost/compress v1.18.3
 	github.com/miekg/dns v1.1.72
 	github.com/quic-go/quic-go v0.59.0
 	github.com/refraction-networking/utls v1.8.2
@@ -11,14 +13,11 @@ require (
 	golang.org/x/sys v0.43.0
 )
 
-replace github.com/refraction-networking/utls => ./utls
-
 require (
 	dario.cat/mergo v1.0.2 // indirect
 	github.com/Microsoft/go-winio v0.6.2 // indirect
 	github.com/ProtonMail/go-crypto v1.3.0 // indirect
 	github.com/adrg/xdg v0.5.3 // indirect
-	github.com/andybalholm/brotli v1.0.6 // indirect
 	github.com/bep/debounce v1.2.1 // indirect
 	github.com/cloudflare/circl v1.6.3 // indirect
 	github.com/coder/websocket v1.8.14 // indirect
@@ -35,7 +34,6 @@ require (
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jchv/go-winloader v0.0.0-20250406163304-c1995be93bd1 // indirect
 	github.com/kevinburke/ssh_config v1.4.0 // indirect
-	github.com/klauspost/compress v1.18.3 // indirect
 	github.com/klauspost/cpuid/v2 v2.3.0 // indirect
 	github.com/leaanthony/go-ansi-parser v1.6.1 // indirect
 	github.com/leaanthony/u v1.1.1 // indirect
@@ -60,5 +58,3 @@ require (
 )
 
 // replace github.com/wailsapp/wails/v2 v2.11.0 => C:\Users\MECHREVO\go\pkg\mod
-
-replace github.com/wailsapp/wails/v3 => C:\Users\Nadia\go\src\wails\v3

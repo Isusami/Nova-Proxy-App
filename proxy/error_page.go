@@ -6,7 +6,6 @@ import (
 	"net"
 	"net/http"
 	"strings"
-	"syscall"
 	"time"
 )
 
@@ -393,15 +392,3 @@ func (p *ProxyServer) renderCertErrorPage(lang string, ctx ErrorContext) string 
 </html>`, title, analysis, back, advanced, suggest, bypassURL, fmt.Sprintf(proceed, ctx.TargetHost), ctx.RawError)
 }
 
-func isRSTError(err error) bool {
-	if err == nil {
-		return false
-	}
-	if opErr, ok := err.(*net.OpError); ok {
-		if syscallErr, ok := opErr.Err.(*syscall.Errno); ok {
-			return *syscallErr == syscall.ECONNRESET || *syscallErr == syscall.WSAECONNRESET
-		}
-	}
-	errStr := strings.ToLower(err.Error())
-	return strings.Contains(errStr, "connection reset") || strings.Contains(errStr, "remote error: tls: internal error")
-}
